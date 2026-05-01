@@ -8,7 +8,7 @@ const PopularProducts = () => {
     const featuredProducts = products.slice(0, 3);
     return (
         <div className="p-6">
-            <h2 className="text-2xl font-bold mb-6">
+            <h2 className="text-3xl font-bold mb-6 mt-5 text-center">
                 Popular Products
             </h2>
 

@@ -34,14 +34,14 @@
   },
 
   {
-    "id": 8,
+    "id": 4,
     "name": "Sunscreen SPF 50",
     "brand": "SkinGuard",
     "price": 9,
     "rating": 4.9,
     "stock": 35,
     "description": "High protection sunscreen to prevent sunburn.",
-    "image": "/sunscreen",
+    "image": "/sunscreen.jpg",
     "category": "Beauty"
   },
   {
@@ -52,53 +52,53 @@
     "rating": 4.4,
     "stock": 25,
     "description": "Handheld mini fan with USB charging for instant cooling.",
-    "image": "https://i.postimg.cc/example5.png",
+    "image": "/fan.jpg",
     "category": "Electronics"
   },
 
  
   {
-    "id": 9,
+    "id": 6,
     "name": "Beach Tote Bag",
     "brand": "CarryAll",
     "price": 16,
     "rating": 4.5,
     "stock": 12,
     "description": "Spacious tote bag to carry all your beach essentials.",
-    "image": "https://i.postimg.cc/example9.png",
+    "image": "/bag.jpg",
     "category": "Accessories"
   },
   {
-    "id": 10,
+    "id": 7,
+    "name": "Women's Floral Dress",
+    "brand": "BloomStyle",
+    "price": 25,
+    "rating": 4.6,
+    "stock": 15,
+    "description": "Comfortable floral dress perfect for summer days.",
+    "image": "/dress.jpg",
+    "category": "Clothing"
+  },
+    {
+    "id": 8,
+    "name": "Men's Summer T-Shirt",
+    "brand": "CoolFit",
+    "price": 18,
+    "rating": 4.3,
+    "stock": 30,
+    "description": "Breathable cotton t-shirt ideal for hot weather.",
+    "image": "/ment.jpg",
+    "category": "Clothing"
+  },
+    {
+    "id": 9,
     "name": "Swimming Goggles",
     "brand": "AquaPro",
     "price": 11,
     "rating": 4.3,
     "stock": 28,
     "description": "Anti-fog swimming goggles for clear underwater vision.",
-    "image": "https://i.postimg.cc/example10.png",
+    "image": "/goggles.jpg",
     "category": "Sports"
-  },
-  {
-    "id": 11,
-    "name": "Ice Cream Maker",
-    "brand": "ChillChef",
-    "price": 45,
-    "rating": 4.6,
-    "stock": 8,
-    "description": "Make delicious homemade ice cream in minutes.",
-    "image": "https://i.postimg.cc/example11.png",
-    "category": "Appliances"
-  },
-  {
-    "id": 12,
-    "name": "Cooling Gel Pillow",
-    "brand": "SleepCool",
-    "price": 30,
-    "rating": 4.7,
-    "stock": 14,
-    "description": "Stay cool and comfortable during hot summer nights.",
-    "image": "https://i.postimg.cc/example12.png",
-    "category": "Home"
   }
 ]
