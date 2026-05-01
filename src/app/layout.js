@@ -1,5 +1,6 @@
 import { Montserrat, Poppins } from "next/font/google";
 import "./globals.css";
+import { ProductProvider } from "@/context/ProductContext";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -24,11 +25,15 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html 
+    <html
       lang="en"
       className={` h-full antialiased`}
     >
-      <body className= {` ${poppins.className} min-h-full flex flex-col`}>{children}</body>
+      <body className={` ${poppins.className} min-h-full flex flex-col`}>
+        <ProductProvider>
+          {children}
+        </ProductProvider>
+      </body>
     </html>
   );
 }

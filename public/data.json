@@ -1,0 +1,104 @@
+[ 
+  {
+    "id": 1,
+    "name": "UV Protection Sunglasses",
+    "brand": "SunShade",
+    "price": 15,
+    "rating": 4.7,
+    "stock": 10,
+    "description": "Stylish UV protection sunglasses perfect for summer outings.",
+    "image": "/sunglass.jpg",
+    "category": "Accessories"
+  },
+    {
+    "id": 2,
+    "name": "Beach Sandals",
+    "brand": "WalkEasy",
+    "price": 14,
+    "rating": 4.2,
+    "stock": 22,
+    "description": "Comfortable sandals perfect for beach and casual wear.",
+    "image": "/sandal.jpg",
+    "category": "Footwear"
+  },
+  {
+    "id": 3,
+    "name": "Beach Straw Hat",
+    "brand": "SunnyWear",
+    "price": 12,
+    "rating": 4.5,
+    "stock": 20,
+    "description": "Lightweight straw hat to keep you cool and protected from the sun.",
+    "image": "/hat.jpg",
+    "category": "Accessories"
+  },
+
+  {
+    "id": 8,
+    "name": "Sunscreen SPF 50",
+    "brand": "SkinGuard",
+    "price": 9,
+    "rating": 4.9,
+    "stock": 35,
+    "description": "High protection sunscreen to prevent sunburn.",
+    "image": "/sunscreen",
+    "category": "Beauty"
+  },
+  {
+    "id": 5,
+    "name": "Portable Mini Fan",
+    "brand": "BreezeTech",
+    "price": 10,
+    "rating": 4.4,
+    "stock": 25,
+    "description": "Handheld mini fan with USB charging for instant cooling.",
+    "image": "https://i.postimg.cc/example5.png",
+    "category": "Electronics"
+  },
+
+ 
+  {
+    "id": 9,
+    "name": "Beach Tote Bag",
+    "brand": "CarryAll",
+    "price": 16,
+    "rating": 4.5,
+    "stock": 12,
+    "description": "Spacious tote bag to carry all your beach essentials.",
+    "image": "https://i.postimg.cc/example9.png",
+    "category": "Accessories"
+  },
+  {
+    "id": 10,
+    "name": "Swimming Goggles",
+    "brand": "AquaPro",
+    "price": 11,
+    "rating": 4.3,
+    "stock": 28,
+    "description": "Anti-fog swimming goggles for clear underwater vision.",
+    "image": "https://i.postimg.cc/example10.png",
+    "category": "Sports"
+  },
+  {
+    "id": 11,
+    "name": "Ice Cream Maker",
+    "brand": "ChillChef",
+    "price": 45,
+    "rating": 4.6,
+    "stock": 8,
+    "description": "Make delicious homemade ice cream in minutes.",
+    "image": "https://i.postimg.cc/example11.png",
+    "category": "Appliances"
+  },
+  {
+    "id": 12,
+    "name": "Cooling Gel Pillow",
+    "brand": "SleepCool",
+    "price": 30,
+    "rating": 4.7,
+    "stock": 14,
+    "description": "Stay cool and comfortable during hot summer nights.",
+    "image": "https://i.postimg.cc/example12.png",
+    "category": "Home"
+  }
+]
