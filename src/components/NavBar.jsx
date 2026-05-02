@@ -4,17 +4,24 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { IoMdMenu } from "react-icons/io";
 import { ImCross } from "react-icons/im";
-import { CgProfile } from "react-icons/cg";
 import Image from "next/image";
+import { authClient } from "@/lib/auth-client";
+
 
 const NavBar = () => {
+
+  const { data: session, isPending } = authClient.useSession();
+  const user = session?.user;
+  console.log("session", user)
+
+
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
   // 🔥 active class function
   const navLinkClass = (path) =>
     pathname === path
-      ? "text-black font-semibold border-b-2 border-black"
+      ? "text-black font-semibold"
       : "text-gray-600 hover:text-black transition";
 
   return (
@@ -48,19 +55,40 @@ const NavBar = () => {
         </div>
 
         {/* 🔹 Right side */}
+       { isPending ? (<span className="loading loading-spinner loading-lg"></span>
+
+       ) : user ? (
+
         <div className="hidden md:flex items-center">
-          <Link href="/login">
-            <button className="px-5 py-2 text-2xl text-black hover:text-3xl transition">
+          <h2>Hello, {user.name}</h2>
+          <Link href="/myprofile">
+            {/* <button className="px-5 py-2 text-2xl text-black hover:text-3xl transition">
               <CgProfile />
+            </button> */}
+            <Image
+            src="/useravatar.png"
+            alt="user image"
+            width={60}
+            height={60}
+            priority
+           />
+          </Link>
+            <Link href="/">
+            <button className="px-5 py-2 border-2 text-black rounded-md hover:bg-gray-800 hover:text-white transition" onClick={async()=> await authClient.signOut()}>
+              Logout
             </button>
           </Link>
-
-          <Link href="/login">
-            <button className="px-5 py-2 border-2 text-black rounded-md hover:bg-gray-800 hover:text-white transition">
+          
+        </div>
+       ) : (
+        
+        <Link href="/login">
+            <button className="px-5 py-2 border-2 text-black rounded-md hover:bg-gray-800 hover:text-white transition" >
               Login
             </button>
           </Link>
-        </div>
+
+       )}
 
         {/* 🔹 Mobile Toggle */}
         <button
@@ -73,7 +101,7 @@ const NavBar = () => {
 
       {/* 🔹 Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden px-6 pb-4 space-y-4 bg-white border-t">
+        <div className="md:hidden px-6 pb-4 space-y-4 bg-white border-t flex flex-col">
           <Link
             href="/"
             className={navLinkClass("/")}
@@ -98,17 +126,27 @@ const NavBar = () => {
             My Profile
           </Link>
 
-          <Link href="/login" onClick={() => setIsOpen(false)}>
+          {/* <Link href="/login" onClick={() => setIsOpen(false)}>
             <button className="w-full mt-2 px-5 py-2 border-2 text-black rounded-md">
               <CgProfile />
             </button>
-          </Link>
+          </Link> */}
+          <div className="flex justify-between items-center" >
+            <Image
+            src="/useravatar.png"
+            alt="SunCart Logo"
+            width={60}
+            height={60}
+            priority
+          />
 
-          <Link href="/login" onClick={() => setIsOpen(false)}>
-            <button className="w-full mt-2 px-5 py-2 border-2 text-black rounded-md">
-              Login
-            </button>
-          </Link>
+          <button className="mt-2 px-5 py-2 border-2 text-black rounded-md">
+            <Link href="/login" onClick={() => setIsOpen(false)}>Login</Link>
+          </button>
+          </div>
+
+          
+
         </div>
       )}
     </nav>
