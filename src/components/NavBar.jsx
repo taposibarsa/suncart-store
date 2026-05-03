@@ -6,6 +6,7 @@ import { IoMdMenu } from "react-icons/io";
 import { ImCross } from "react-icons/im";
 import Image from "next/image";
 import { authClient } from "@/lib/auth-client";
+import { FcGoogle } from "react-icons/fc";
 
 
 const NavBar = () => {
@@ -17,6 +18,8 @@ const NavBar = () => {
 
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
+
+  if (isPending) return <div>Loading...</div>
 
   // 🔥 active class function
   const navLinkClass = (path) =>
@@ -55,40 +58,56 @@ const NavBar = () => {
         </div>
 
         {/* 🔹 Right side */}
-       { isPending ? (<span className="loading loading-spinner loading-lg"></span>
+        {isPending ? (<span className="loading loading-spinner loading-lg"></span>
 
-       ) : user ? (
+        ) : user ? (
 
-        <div className="hidden md:flex items-center">
-          <h2>Hello, {user.name}</h2>
-          <Link href="/myprofile">
-            {/* <button className="px-5 py-2 text-2xl text-black hover:text-3xl transition">
+          <div className="hidden md:flex items-center">
+            <h2>Hello, {user.name}</h2>
+            <Link href="/myprofile">
+              {/* <button className="px-5 py-2 text-2xl text-black hover:text-3xl transition">
               <CgProfile />
             </button> */}
-            <Image
-            src="/useravatar.png"
-            alt="user image"
-            width={60}
-            height={60}
-            priority
-           />
-          </Link>
+              <Image
+                src="/useravatar.png"
+                alt="user image"
+                width={60}
+                height={60}
+                priority
+              />
+            </Link>
             <Link href="/">
-            <button className="px-5 py-2 border-2 text-black rounded-md hover:bg-gray-800 hover:text-white transition" onClick={async()=> await authClient.signOut()}>
-              Logout
-            </button>
-          </Link>
-          
-        </div>
-       ) : (
-        
-        <Link href="/login">
-            <button className="px-5 py-2 border-2 text-black rounded-md hover:bg-gray-800 hover:text-white transition" >
-              Login
-            </button>
-          </Link>
+              <button className="px-5 py-2 border-2 text-black rounded-md hover:bg-gray-800 hover:text-white transition" onClick={async () => await authClient.signOut()}>
+                Logout
+              </button>
+            </Link>
 
-       )}
+          </div>
+        ) : (
+
+          <div className="hidden md:flex items-center gap-3">
+            <Link href="/login">
+              <button className="px-5 py-2 border-2 text-black rounded-md hover:bg-gray-800 hover:text-white transition">
+                Login
+              </button>
+            </Link>
+
+            <Link href="/register">
+              <button className="px-5 py-2 border-2 text-black rounded-md hover:bg-gray-700 hover:text-white transition">
+                Register
+              </button>
+            </Link>
+
+            <button
+              onClick={() => authClient.signIn.social({ provider: "google" })}
+              className="flex items-center gap-2 px-5 py-2 border-2  rounded-md hover:bg-gray-700 hover:text-white transition"
+            >
+              <FcGoogle />
+              Login with Google
+            </button>
+          </div>
+
+        )}
 
         {/* 🔹 Mobile Toggle */}
         <button
@@ -131,21 +150,50 @@ const NavBar = () => {
               <CgProfile />
             </button>
           </Link> */}
-          <div className="flex justify-between items-center" >
-            <Image
-            src="/useravatar.png"
-            alt="SunCart Logo"
-            width={60}
-            height={60}
-            priority
-          />
+          {user ? (
+            <div className="flex flex-col gap-3 mt-2">
+              <div className="flex items-center gap-3">
+                <Image src="/useravatar.png" alt="user image" width={40} height={40} priority />
+                <h2>Hello, {user.name}</h2>
+              </div>
+              <button
+                className="w-full px-5 py-2 border-2 text-black rounded-md hover:bg-gray-800 hover:text-white transition"
+                onClick={async () => {
+                  await authClient.signOut();
+                  setIsOpen(false);
+                }}
+              >
+                Logout
+              </button>
+            </div>
+          ) : (
+            <div className="flex flex-col gap-3 mt-2">
+              <div className="flex gap-3">
+                <Link href="/login" onClick={() => setIsOpen(false)} className="flex-1">
+                  <button className="w-full px-5 py-2 border-2 text-black rounded-md hover:bg-gray-800 hover:text-white transition">
+                    Login
+                  </button>
+                </Link>
+                <Link href="/register" onClick={() => setIsOpen(false)} className="flex-1">
+                  <button className="w-full px-5 py-2 border-2 text-black rounded-md hover:bg-gray-800 hover:text-white transition">
+                    Register
+                  </button>
+                </Link>
+              </div>
+              <button
+                onClick={() => {
+                  authClient.signIn.social({ provider: "google" });
+                  setIsOpen(false);
+                }}
+                className="flex items-center justify-center gap-2 px-5 py-2 border-2 rounded-md hover:bg-gray-800 hover:text-white transition"
+              >
+                <FcGoogle />
+                Log in with Google
+              </button>
+            </div>
+          )}
 
-          <button className="mt-2 px-5 py-2 border-2 text-black rounded-md">
-            <Link href="/login" onClick={() => setIsOpen(false)}>Login</Link>
-          </button>
-          </div>
 
-          
 
         </div>
       )}
