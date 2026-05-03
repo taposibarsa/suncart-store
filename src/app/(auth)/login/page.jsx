@@ -5,6 +5,7 @@ import { authClient } from "@/lib/auth-client";
 import { useState } from "react";
 import { FaEye } from "react-icons/fa";
 import { LuEyeClosed } from "react-icons/lu";
+import { ToastContainer, toast } from 'react-toastify';
 
 
 const LoginPage = () => {
@@ -20,7 +21,16 @@ const LoginPage = () => {
             rememberMe: true,
             callbackURL: "/",
         });
-        console.log(res, error);
+
+        if (error) {
+            toast.error('Login Failed');
+            return;
+        }
+
+        if (res) {
+            toast.success("Login successful!");
+         
+        }
     }
     return (
         <div className="min-h-[90vh] flex items-center justify-center bg-gray-100 px-4">
@@ -59,7 +69,7 @@ const LoginPage = () => {
                             {...register("password", { required: "password field is required" })}
                             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black transition"
                         />
-                        <span className="absolute right-3 top-9 cursor-pointer" onClick={() => setIsShowPassword(!isShowPassword)}> {isShowPassword? <FaEye /> : <LuEyeClosed /> }</span>
+                        <span className="absolute right-3 top-9 cursor-pointer" onClick={() => setIsShowPassword(!isShowPassword)}> {isShowPassword ? <FaEye /> : <LuEyeClosed />}</span>
                         {errors.password && <p className="text-red-500 mt-2">{errors.password.message}</p>}
                     </div>
 
@@ -78,6 +88,8 @@ const LoginPage = () => {
                     </Link>
                 </p>
             </div>
+
+            <ToastContainer />
         </div>
     );
 };

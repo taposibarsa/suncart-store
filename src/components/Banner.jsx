@@ -4,7 +4,7 @@ import Image from 'next/image';
 const Banner = () => {
     return (
 
-        <div className="flex flex-col md:flex-row items-stretch gap-4 h-auto md:h-[80vh]">
+        <div className="flex flex-col md:flex-row items-stretch container mx-auto gap-4 h-auto md:h-[65vh]">
 
             {/* Left Image */}
             <div className="relative w-full md:w-[60%] h-[250px] sm:h-[300px] md:h-full">
@@ -30,6 +30,8 @@ const Banner = () => {
                 <button className="bg-black text-white px-6 py-2 rounded-md w-fit">
                     Shop Now
                 </button>
+
+
             </div>
 
         </div>

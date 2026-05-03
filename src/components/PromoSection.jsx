@@ -2,11 +2,11 @@ import Image from "next/image";
 
 const PromoSection = () => {
     return (
-        <div>
+        <div className="container mx-auto">
             <div className="mt-5 grid grid-cols-1 md:grid-cols-3 gap-4">
       
       {/* Card 1 */}
-      <div className="relative h-[200px] sm:h-[250px] rounded-xl overflow-hidden group">
+      <div className="relative h-[200px] sm:h-[250px] rounded-xl overflow-hidden group ">
         <Image
           src="/promo3.jpg"
           alt="promo1"

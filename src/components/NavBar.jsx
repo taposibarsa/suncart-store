@@ -52,7 +52,7 @@ const NavBar = () => {
             Products
           </Link>
 
-          <Link href="/myprofile" className={navLinkClass("/myprofile")}>
+          <Link href="/my-profile" className={navLinkClass("/my-profile")}>
             My Profile
           </Link>
         </div>
@@ -64,7 +64,7 @@ const NavBar = () => {
 
           <div className="hidden md:flex items-center">
             <h2>Hello, {user.name}</h2>
-            <Link href="/myprofile">
+            <Link href="/my-profile">
               {/* <button className="px-5 py-2 text-2xl text-black hover:text-3xl transition">
               <CgProfile />
             </button> */}
@@ -138,8 +138,8 @@ const NavBar = () => {
           </Link>
 
           <Link
-            href="/myprofile"
-            className={navLinkClass("/myprofile")}
+            href="/my-profile"
+            className={navLinkClass("/my-profile")}
             onClick={() => setIsOpen(false)}
           >
             My Profile
@@ -153,7 +153,9 @@ const NavBar = () => {
           {user ? (
             <div className="flex flex-col gap-3 mt-2">
               <div className="flex items-center gap-3">
-                <Image src="/useravatar.png" alt="user image" width={40} height={40} priority />
+                <Link href="/my-profile">
+                  <Image src="/useravatar.png" alt="user image" width={40} height={40} priority />
+                </Link>
                 <h2>Hello, {user.name}</h2>
               </div>
               <button

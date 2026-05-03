@@ -5,6 +5,7 @@ import { authClient } from "@/lib/auth-client";
 import { useState } from "react";
 import { FaEye } from "react-icons/fa";
 import { LuEyeClosed } from "react-icons/lu";
+import { ToastContainer, toast } from 'react-toastify';
 
 const RegisterPage = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -25,10 +26,10 @@ const RegisterPage = () => {
         console.log(res, error, 'password length', password.length);
 
         if(error){
-            alert(error.message)
+            toast.error(error.message)
         }
         if(res){
-            alert("Registration successful")
+            toast.success("Registration Successful")
         }
     }
     return (
@@ -125,6 +126,7 @@ const RegisterPage = () => {
                 </form>
 
             </div>
+            <ToastContainer />
         </div>
     );
 };
