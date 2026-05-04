@@ -2,15 +2,36 @@ import { betterAuth } from "better-auth";
 import { MongoClient } from "mongodb";
 import { mongodbAdapter } from "better-auth/adapters/mongodb";
 
-const client = new MongoClient(process.env.AUTH_DB_URI, {
-  serverSelectionTimeoutMS: 5000,
-});
+const uri = process.env.AUTH_DB_URI?.trim();
+if (!uri) {
+  throw new Error("AUTH_DB_URI is not set.");
+}
 
+/** Reuse one client across Vercel serverless invocations (see MongoDB + Vercel connection notes). */
+const globalForMongo = globalThis;
+function getMongoClient() {
+  if (!globalForMongo.__betterAuthMongoClient) {
+    globalForMongo.__betterAuthMongoClient = new MongoClient(uri, {
+      serverSelectionTimeoutMS: 10_000,
+      maxPoolSize: 10,
+    });
+  }
+  return globalForMongo.__betterAuthMongoClient;
+}
+
+const client = getMongoClient();
 const db = client.db("betterAuthUserDB");
+
+const googleId = process.env.GOOGLE_CLIENT_ID?.trim();
+const googleSecret = process.env.GOOGLE_CLIENT_SECRET?.trim();
 
 export const auth = betterAuth({
   baseURL: process.env.BETTER_AUTH_URL,
   secret: process.env.BETTER_AUTH_SECRET,
+
+  advanced: {
+    ...(process.env.VERCEL ? { trustedProxyHeaders: true } : {}),
+  },
 
   database: mongodbAdapter(db, { client }),
 
@@ -19,9 +40,13 @@ export const auth = betterAuth({
     minPasswordLength: 6,
   },
   socialProviders: {
-    google: {
-      clientId: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    },
+    ...(googleId && googleSecret
+      ? {
+          google: {
+            clientId: googleId,
+            clientSecret: googleSecret,
+          },
+        }
+      : {}),
   },
 });
