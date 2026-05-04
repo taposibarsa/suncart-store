@@ -5,7 +5,7 @@ Suncart is a modern and responsive e-commerce web application focused on summer 
 ---
 
 ## 🚀 Live Demo
-🔗 (Live Link)
+🔗 [(Live Link)](https://suncart-store-ebon.vercel.app/)
 
 ---
 
