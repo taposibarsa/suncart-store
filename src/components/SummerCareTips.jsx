@@ -38,13 +38,16 @@ export default function SummerCareTips() {
             <div className="container mx-auto">
                 {/* image model */}
 
-                <div className="relative w-7xl h-[60vh] mx-auto rounded-xl mb-15">
+                <div className="relative w-full h-[45vh] sm:h-[55vh] md:h-[60vh] lg:h-[65vh] rounded-xl overflow-hidden flex items-center justify-center bg-gray-50 mb-15">
+
                     <Image
                         src="/model.jpg"
                         alt="model under sun"
                         fill
                         className="object-contain"
+                        priority
                     />
+
                 </div>
 
                 {/* Header */}

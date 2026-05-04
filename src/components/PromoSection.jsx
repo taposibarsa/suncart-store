@@ -6,12 +6,12 @@ const PromoSection = () => {
             <div className="mt-5 grid grid-cols-1 md:grid-cols-3 gap-4">
       
       {/* Card 1 */}
-      <div className="relative h-[200px] sm:h-[250px] rounded-xl overflow-hidden group ">
+      <div className="relative h-50 sm:h-62.5 rounded-xl overflow-hidden group ">
         <Image
           src="/promo3.jpg"
           alt="promo1"
           fill
-          className="object-cover group-hover:scale-105 transition duration-300"
+          className="object-cover w-full h-full  group-hover:scale-105 transition duration-300"
         />
         <div className="absolute inset-0 bg-black/30 flex flex-col justify-end p-4 text-white">
           <p className="text-sm">Glossier</p>
@@ -21,12 +21,12 @@ const PromoSection = () => {
       </div>
 
       {/* Card 2 */}
-      <div className="relative h-[200px] sm:h-[250px] rounded-xl overflow-hidden group">
+      <div className="relative h-50 sm:h-62.5 rounded-xl overflow-hidden group">
         <Image
           src="/promo2.jpg"
           alt="promo2"
           fill
-          className="object-cover group-hover:scale-105 transition duration-300"
+          className="object-cover w-full h-full group-hover:scale-105 transition duration-300"
         />
         <div className="absolute inset-0 bg-black/30 flex flex-col justify-end p-4 text-white">
           <p className="text-sm">MISSHA</p>
@@ -36,12 +36,12 @@ const PromoSection = () => {
       </div>
 
       {/* Card 3 */}
-      <div className="relative h-[200px] sm:h-[250px] rounded-xl overflow-hidden group">
+      <div className="relative h-50 sm:h-62.5 rounded-xl overflow-hidden group">
         <Image
           src="/promo1.jpg"
           alt="promo3"
           fill
-          className="object-cover group-hover:scale-105 transition duration-300"
+          className="object-cover w-full h-full  group-hover:scale-105 transition duration-300"
         />
         <div className="absolute inset-0 bg-black/30 flex flex-col justify-end p-4 text-white">
           <p className="text-sm">DAILY</p>

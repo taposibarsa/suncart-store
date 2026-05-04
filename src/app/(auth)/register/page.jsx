@@ -84,6 +84,7 @@ const RegisterPage = () => {
                         </label>
                         <input
                             type="text"
+                            value={"https://img.magnific.com/premium-vector/young-man-avatar-character-due-avatar-man-vector-icon-cartoon-illustration_1186924-4438.jpg?semt=ais_hybrid&w=740&q=80"}
                             placeholder="Enter your photo URL"
                             {...register("photo")}
                             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black transition"

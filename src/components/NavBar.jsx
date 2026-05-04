@@ -62,18 +62,19 @@ const NavBar = () => {
 
         ) : user ? (
 
-          <div className="hidden md:flex items-center">
-            <h2>Hello, {user.name}</h2>
+          <div className="hidden md:flex items-center gap-2.5">
+            <h2>Hello, <br></br> {user.name}</h2>
             <Link href="/my-profile">
               {/* <button className="px-5 py-2 text-2xl text-black hover:text-3xl transition">
               <CgProfile />
             </button> */}
               <Image
-                src="/useravatar.png"
+                src={user?.image || "/useravatar.png"}
                 alt="user image"
                 width={60}
                 height={60}
                 priority
+                className="rounded-full"
               />
             </Link>
             <Link href="/">
@@ -154,7 +155,12 @@ const NavBar = () => {
             <div className="flex flex-col gap-3 mt-2">
               <div className="flex items-center gap-3">
                 <Link href="/my-profile">
-                  <Image src="/useravatar.png" alt="user image" width={40} height={40} priority />
+                  <Image src={user?.image || "/useravatar.png"} 
+                  alt="user image" 
+                  width={40} height={40} 
+                  priority
+                  className="rounded-full overflow-hidden"
+                  />
                 </Link>
                 <h2>Hello, {user.name}</h2>
               </div>
